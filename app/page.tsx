@@ -2,7 +2,6 @@ import projects from "@/data/projects.json"
 import Image from "next/image";
 import getImageLink from "@/lib/getImageLink";
 import getVideoLink from "@/lib/getVideoLink";
-import extractGoogleDriveId from "@/lib/extractGoogleDriveId";
 export default function Home() {
   return (
     <div className={"container grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mx-auto my-12 md:my-[180px] max-w-8xl gap-2 sm:gap-36 xl:gap-56"}>
