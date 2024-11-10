@@ -5,6 +5,8 @@ import {Button} from "@/components/ui/button";
 import {MoveUpRight} from "lucide-react";
 import Image from "next/image";
 import signature from "./signature.png"
+import Link from "next/link";
+import updatedAt from "@/data/maj.json"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,8 +20,25 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Guillaume Berthonneau",
+  title: "Guillaume Berthonneau | Designer",
   description: "Designer at Bordeaux, France",
+    openGraph: {
+        title: "Guillaume Berthonneau | Designer",
+        description:
+            "Designer at Bordeaux, France",
+        url: "https://bguillaume.fr",
+        siteName: "Guillaume Berthonneau | Designer",
+        images: [
+            {
+                url: "https://bguillaume.fr/og.png",
+                width: 2400,
+                height: 1260,
+                alt: "Guillaume Berthonneau | Designer",
+            },
+        ],
+        locale: "fr_FR",
+        type: "website",
+    },
 };
 
 export default function RootLayout({
@@ -77,13 +96,13 @@ export default function RootLayout({
               </div>
           </div>
           <div className={"relative md:text-center order-1 md:order-2"}>
-              <div>I&#39;M A DESIGNER @ANAGRAM</div>
+              <div className={""} >I&#39;M A DESIGNER <Link href={"https://anagram.club"} target={"_blank"} className={"cursor-pointer"}>@ANAGRAM</Link></div>
               <Image src={signature} alt={"Signature"}
-                     className={"absolute left-12 md:left-1/2 -top-10 w-[120px] md:w-[182px] md:-translate-x-1/2"}/>
+                     className={"absolute z-0 left-12 md:left-1/2 pointer-events-none -top-10 w-[120px] md:w-[182px] md:-translate-x-1/2"}/>
           </div>
           <div className={"md:text-end order-3"}>
               <div>(GRID_LAB)</div>
-              <div className={"text-sm text-muted-foreground"}>UPDATED ON NOVEMBER 12, 2024</div>
+              <div className={"text-sm text-muted-foreground"}>{updatedAt[0].updatedAt}</div>
               <div className={"text-sm"}>BORDEAUX, FRANCE</div>
           </div>
       </div>
