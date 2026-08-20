@@ -2,10 +2,12 @@ import projects from "@/data/projects.json"
 import Image from "next/image";
 import getImageLink from "@/lib/getImageLink";
 import getVideoLink from "@/lib/getVideoLink";
+
+type Project = { image?: string; video?: string };
 export default function Home() {
   return (
     <div className={"container grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mx-auto my-12 md:my-[180px] max-w-8xl gap-2 sm:gap-16 xl:gap-24"}>
-      {projects.map((project, index) => (
+      {(projects as Project[]).map((project, index) => (
           <div key={index}>
             {project.image && !project.video &&
               <Image width={300} height={250} className={"w-full h-full object-contain object-center my-auto"} src={getImageLink(project.image)} alt={""}/>
