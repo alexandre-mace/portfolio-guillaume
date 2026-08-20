@@ -11,7 +11,7 @@ export default function Home() {
               <Image width={300} height={250} className={"w-full h-full object-contain object-center my-auto"} src={getImageLink(project.image)} alt={""}/>
             }
             {project.video &&
-                <video width="300" poster={getImageLink(project.image)} height="250" className={"w-full h-full object-contain object-center my-auto"} autoPlay loop muted playsInline preload="auto">
+                <video width="300" poster={project.image ? getImageLink(project.image) : undefined} height="250" className={"w-full h-full object-contain object-center my-auto"} autoPlay loop muted playsInline preload="auto">
                   <source src={getVideoLink(project.video)} type="video/mp4"/>
                   Your browser does not support the video tag.
                 </video>
